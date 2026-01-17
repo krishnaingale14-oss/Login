@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login & Registration</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+
+        .container {
+            width: 350px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: black;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        .toggle {
+            text-align: center;
+            margin-top: 15px;
+            cursor: pointer;
+            color: black;
+            font-size: 14px;
+        }
+
+        .toggle:hover {
+            text-decoration: underline;
+        }
+
+        .form {
+            display: none;
+            animation: fade 0.5s ease;
+        }
+
+        .form.active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Login Form -->
+    <div class="form active" id="loginForm">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button>Login</button>
+        <div class="toggle" onclick="showRegister()">Not registered? Create account</div>
+    </div>
+
+    <!-- Register Form -->
+    <div class="form" id="registerForm">
+        <h2>Register</h2>
+        <input type="text" placeholder="Username" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button>Register</button>
+        <div class="toggle" onclick="showLogin()">Already have an account? Login</div>
+    </div>
+</div>
+
+<script>
+    function showRegister() {
+        document.getElementById("loginForm").classList.remove("active");
+        document.getElementById("registerForm").classList.add("active");
+    }
+
+    function showLogin() {
+        document.getElementById("registerForm").classList.remove("active");
+        document.getElementById("loginForm").classList.add("active");
+    }
+</script>
+
+</body>
+</html>
